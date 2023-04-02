@@ -31,8 +31,11 @@ video_ext_list = ['.avi', '.mp4', '.mov', '.mkv']
 found_extensions_list = []
 
 CYRILLIC_SYMBOLS = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ")
-TRANSLATION = list("abcdefghijklmnopqrstuvwxyz")
-BAD_SYMBOLS = ("%", "*", " ", "-")
+# TRANSLATION = list("abcdefghijklmnopqrstuvwxyz")
+TRANSLATION = ("a", "b", "v", "h", "d", "e", "yo", "zh", "z", "i", "i", "k", "l", "m",
+               "n", "o", "p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh", "shch",
+               "", "y", "", "e", "yu", "ya", "ie", "i", "i", "g")
+BAD_SYMBOLS = ("%", "*", " ", "-", "'")
 
 TRANS = {}
 for cyr, lat in zip(CYRILLIC_SYMBOLS, TRANSLATION):
@@ -130,7 +133,7 @@ def main():
         pprint(sorted_files_dict)
         found_extensions = set(found_extensions_list)
         print(f"Found_extensions: {found_extensions}")
-        print(TRANS)
+        # print(TRANS)
     else:
         print("Nothing to sort...")
     return "All done!"
